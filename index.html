@@ -8,20 +8,39 @@
   <title>Owlora Privacy Policy</title>
   <style>
     :root {
-      color-scheme: light;
+      color-scheme: light dark;
       --owlora-purple: #7C3AED;
+      --link: #6330c8;
       --text: #24212b;
       --muted: #625d6b;
       --border: #e8e4ee;
+      --bg: #f7f6fa;
       --surface: #ffffff;
       --soft: #f8f6fc;
+      --tint: #fbf9ff;
+      --tint-border: #e5dcff;
+      --brand-bg: #f0eaff;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --link: #c4b5fd;
+        --text: #f3f4f6;
+        --muted: #9ca3af;
+        --border: #4b5563;
+        --bg: #1f2937;
+        --surface: #374151;
+        --soft: #2d3644;
+        --tint: #3b3552;
+        --tint-border: #5b4a8b;
+        --brand-bg: #4c3d7a;
+      }
     }
     * { box-sizing: border-box; }
     body {
       margin: 0;
-      background: #f7f6fa;
+      background: var(--bg);
       color: var(--text);
-      font: 16px/1.7 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font: 16px/1.7 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     }
     .page {
       width: min(900px, calc(100% - 32px));
@@ -29,7 +48,7 @@
       padding: clamp(24px, 5vw, 56px);
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 20px;
+      border-radius: 24px;
       box-shadow: 0 12px 40px rgb(34 20 60 / 6%);
     }
     .brand {
@@ -41,36 +60,42 @@
       font-weight: 750;
       letter-spacing: .02em;
     }
+    @media (prefers-color-scheme: dark) { .brand { color: #c4b5fd; } }
     .brand-mark {
       display: inline-grid;
       width: 36px;
       height: 36px;
       place-items: center;
       border-radius: 11px;
-      background: #f0eaff;
+      background: var(--brand-bg);
       font-size: 20px;
     }
     h1, h2 { line-height: 1.25; }
     h1 {
       margin: 0 0 12px;
       font-size: clamp(2rem, 5vw, 2.8rem);
+      font-weight: 800;
       letter-spacing: -.035em;
     }
     h2 {
       margin: 34px 0 12px;
       font-size: 1.35rem;
+      font-weight: 750;
       letter-spacing: -.015em;
     }
+    h3 { margin: 22px 0 6px; font-size: 1.05rem; }
     p { margin: 10px 0 16px; }
     .meta { color: var(--muted); margin-bottom: 28px; }
     .meta p { margin: 2px 0; }
-    .short-version {
+    .callout {
       padding: 20px 22px;
-      border: 1px solid #e5dcff;
-      border-radius: 14px;
-      background: #fbf9ff;
+      margin-bottom: 18px;
+      border: 1px solid var(--tint-border);
+      border-radius: 16px;
+      background: var(--tint);
     }
-    .short-version h2 { margin-top: 0; }
+    .callout h2 { margin-top: 0; }
+    .callout.updated { background: var(--soft); border-color: var(--border); }
     ul { padding-left: 24px; }
     li { margin: 8px 0; }
     .table-wrap { overflow-x: auto; margin: 16px 0 22px; }
@@ -87,7 +112,7 @@
       vertical-align: top;
     }
     th { background: var(--soft); font-weight: 700; }
-    a { color: #6330c8; text-underline-offset: 3px; }
+    a { color: var(--link); text-underline-offset: 3px; }
     a:focus-visible { outline: 3px solid #bca4ff; outline-offset: 3px; }
     footer {
       margin-top: 36px;
@@ -99,43 +124,68 @@
     @media (max-width: 600px) {
       .page { width: 100%; margin: 0; padding: 24px 20px 32px; border: 0; border-radius: 0; }
       body { font-size: 15px; }
-      .short-version { padding: 16px; }
+      .callout { padding: 16px; }
     }
     @media print {
-      body { background: white; }
+      :root { color-scheme: light; }
+      body { background: white; color: black; }
       .page { width: 100%; margin: 0; padding: 0; border: 0; box-shadow: none; }
     }
   </style>
 </head>
 <body>
   <main class="page">
-    <h1>Owlora Privacy Policy</h1>
+    <div class="brand"><span class="brand-mark" aria-hidden="true">🦉</span> Owlora</div>
+    <h1>Privacy Policy</h1>
     <div class="meta">
-      <p><strong>Effective date:</strong> October 23, 2026</p>
+      <p><strong>Effective date:</strong> November 1, 2026</p>
       <p><strong>Applies to:</strong> the Owlora: Your Study Companion app</p>
     </div>
 
-    <section class="short-version" aria-labelledby="short-version-heading">
+    <section class="callout" aria-labelledby="short-version-heading">
       <h2 id="short-version-heading">The short version</h2>
       <ul>
-        <li>Your notes, flashcards, quizzes, and study plans stay only on your device unless you buy Cloud Sync.</li>
+        <li>Your notes, flashcards, quizzes, and study plans stay only on your device unless you subscribe to Cloud Sync.</li>
         <li>We don't run ads and don't use third-party analytics or tracking SDKs.</li>
         <li>Signing in uses your Google account's name, email, and photo — nothing else from Google.</li>
-        <li>Scanning a document or asking Owlora to summarize, format, or generate flashcards/quizzes sends that content to our servers to produce the result.</li>
-        <li>Purchases (credits, Cloud Sync) go through Google Play and RevenueCat — we never see your card details.</li>
-        <li>You can ask us to delete your account and data at any time.</li>
+        <li>Scanning a document, generating notes from a topic, or asking Owlora to summarize, format, or create flashcards/quizzes sends that content to our servers and AI providers to produce the result.</li>
+        <li>Purchases (credits and the Cloud Sync subscription) go through Google Play and RevenueCat — we never see your card details.</li>
+        <li>You can delete your account and data from inside the app at any time.</li>
+      </ul>
+    </section>
+
+    <section class="callout updated" aria-labelledby="whats-new-heading">
+      <h2 id="whats-new-heading">What's changed in this version</h2>
+      <ul>
+        <li>Cloud Sync is now a yearly subscription, and we explain what happens to your backup if it ends.</li>
+        <li>You can now delete your account directly in the app (with a 30-day grace period).</li>
+        <li>We now name the providers that process your data, including our hosting, network, and AI providers.</li>
+        <li>We added details on device integrity checks, IP addresses, and usage records.</li>
       </ul>
     </section>
 
     <section aria-labelledby="collection">
       <h2 id="collection">1. Information we collect</h2>
       <p>Owlora is built local-first: your study content lives in a database on your own device by default. Anything not listed below, we don't collect.</p>
+
       <p><strong>Account information</strong> — When you sign in with Google, we receive your name, email address, profile photo, and a unique Google account identifier. We use this to create and secure your account and to identify your data if you reinstall the app or switch devices.</p>
-      <p><strong>Your study content</strong> — Notes, folders, flashcards, decks, quizzes, quiz answers, and study plans are stored locally on your device. If you purchase Cloud Sync, this same content is also stored on our servers so it can sync across your devices and survive a reinstall.</p>
-      <p><strong>Scanned documents and photos</strong> — If you scan a document or photo to turn it into a note, the image is processed to extract its text — either on your device, or, for AI-assisted scans, uploaded to our servers for processing. Only the extracted text is kept as part of your note.</p>
-      <p><strong>Content you ask Owlora to process with AI</strong> — When you ask Owlora to summarize a note, reformat it, or generate flashcards or quizzes from it, the relevant text is sent to our servers and processed — which may include passing it to a third-party AI provider — to produce the result.</p>
-      <p><strong>Purchase information</strong> — In-app purchases (AI credits, OCR credits, Cloud Sync storage) are processed by Google Play Billing and RevenueCat, our subscription management provider. We receive purchase confirmations, product identifiers, and a RevenueCat-assigned identifier linked to your account. We never receive your card number or other payment details.</p>
-      <p><strong>Device information</strong> — If you use Cloud Sync, we receive your device's name so you can tell which device made a given change — for example, "synced from Sarah's iPhone."</p>
+
+      <p><strong>Device integrity check</strong> — When you create a new account, the app asks Google Play Integrity to confirm the request comes from a genuine copy of Owlora on a real device. We receive only the resulting verdict, which we use to prevent fake and automated accounts.</p>
+
+      <p><strong>Your study content</strong> — Notes, folders, flashcards, decks, quizzes, quiz answers, and study plans are stored locally on your device. If you subscribe to Cloud Sync, this same content is also stored on our servers so it can sync across your devices and survive a reinstall.</p>
+
+      <p><strong>Scanned documents and photos</strong> — If you scan a document or photo to turn it into a note, the image is processed to extract its text — either on your device, or, for premium scans, uploaded to our servers and processed by Google Cloud Vision. Only the extracted text is kept as part of your note; we don't store the image.</p>
+
+      <p><strong>Content you ask Owlora to process with AI</strong> — When you ask Owlora to summarize or reformat a note, generate flashcards or quizzes, or generate notes from a topic, the relevant text is sent to our servers and to our AI provider, OpenAI, to produce the result.</p>
+
+      <p><strong>Purchase information</strong> — In-app purchases (AI credits, scan credits, and the Cloud Sync subscription) are processed by Google Play Billing and RevenueCat, our subscription management provider. We receive purchase confirmations, product identifiers, prices paid, subscription status and renewal dates, and a RevenueCat identifier linked to your account. We never receive your card number or other payment details.</p>
+
+      <p><strong>Usage records</strong> — We keep a record of your credit balances and transactions, and of each AI or scan request (which feature was used, its size, and the credits it used), so we can charge credits correctly, show your history, and handle support requests.</p>
+
+      <p><strong>Device information</strong> — If you use Cloud Sync, we receive your device's name so you can tell which device made a given change — for example, "synced from Maria's phone."</p>
+
+      <p><strong>IP address and technical logs</strong> — Like any online service, our servers and our network provider process your IP address and basic request information when the app connects to us. We use this to keep the service secure, limit abuse, and fix problems.</p>
+
       <p><strong>What we don't collect</strong> — Study reminders are scheduled and shown entirely on your device; we never see them. As of this policy's effective date, Owlora does not use any third-party analytics, advertising, or crash-reporting SDKs, and we don't run ads.</p>
     </section>
 
@@ -143,11 +193,11 @@
       <h2 id="use">2. How we use your information</h2>
       <ul>
         <li>To create, secure, and authenticate your account.</li>
-        <li>To store and sync your study content across your devices, if you've purchased Cloud Sync.</li>
-        <li>To generate the summaries, flashcards, quizzes, and scanned-text results you ask for.</li>
-        <li>To track and apply your AI/OCR credit balance and Cloud Sync storage.</li>
+        <li>To store and sync your study content across your devices while your Cloud Sync subscription is active.</li>
+        <li>To generate the summaries, notes, flashcards, quizzes, and scanned-text results you ask for.</li>
+        <li>To track your AI and scan credit balances and your Cloud Sync subscription status.</li>
         <li>To respond to support requests you send us.</li>
-        <li>To maintain the security of our service and prevent abuse.</li>
+        <li>To maintain the security of our service and prevent fraud and abuse.</li>
       </ul>
     </section>
 
@@ -160,9 +210,12 @@
             <tr><th scope="col">Who</th><th scope="col">What they receive</th><th scope="col">Why</th></tr>
           </thead>
           <tbody>
-            <tr><td>Google (Sign-In &amp; Play Billing)</td><td>Sign-in credentials, purchase transactions</td><td>Authentication and processing in-app purchases</td></tr>
-            <tr><td>RevenueCat</td><td>Your account identifier, purchase and entitlement data</td><td>Managing credits, Cloud Sync access, and storage limits</td></tr>
-            <tr><td>AI service providers</td><td>Text you submit for summaries, formatting, flashcards, quizzes, or scanned documents</td><td>Generating the content you requested</td></tr>
+            <tr><td>Google (Sign-In, Play Billing, Play Integrity)</td><td>Sign-in credentials, purchase transactions, device integrity check for new accounts</td><td>Authentication, processing in-app purchases, and preventing fake accounts</td></tr>
+            <tr><td>RevenueCat</td><td>Your account identifier, purchase and subscription data</td><td>Managing credits and your Cloud Sync subscription</td></tr>
+            <tr><td>OpenAI</td><td>Text you submit for summaries, formatting, flashcards, quizzes, or note generation</td><td>Generating the content you requested</td></tr>
+            <tr><td>Google Cloud Vision</td><td>Images from premium scans</td><td>Extracting text from your scanned documents</td></tr>
+            <tr><td>DigitalOcean</td><td>Data stored on our servers, including your account and Cloud Sync content</td><td>Hosting our servers and database</td></tr>
+            <tr><td>Cloudflare</td><td>IP address and request data as you connect to our servers</td><td>Securely delivering traffic to our servers and protecting them from attacks</td></tr>
           </tbody>
         </table>
       </div>
@@ -172,17 +225,24 @@
 
     <section aria-labelledby="security">
       <h2 id="security">4. Data storage and security</h2>
-      <p>Your study content is stored locally in an on-device database by default. Access tokens are stored using your device's secure credential storage, not in plain text. Data sent to our servers travels over encrypted (HTTPS) connections. No method of transmission or storage is perfectly secure, but we take reasonable technical and organizational measures to protect your information.</p>
+      <p>Your study content is stored locally in an on-device database by default. Sign-in tokens are stored using your device's secure credential storage, not in plain text. Data sent to our servers travels over encrypted (HTTPS) connections. No method of transmission or storage is perfectly secure, but we take reasonable technical and organizational measures to protect your information.</p>
     </section>
 
     <section aria-labelledby="retention">
       <h2 id="retention">5. Data retention</h2>
-      <p>Content stored only on your device remains there until you delete it or uninstall the app. Content stored on our servers because you've purchased Cloud Sync is retained for as long as your account is active, or until you ask us to delete it. We may retain limited information where necessary to comply with legal obligations, resolve disputes, or enforce our agreements.</p>
+      <p>Content stored only on your device remains there until you delete it or uninstall the app.</p>
+      <p><strong>While you're subscribed to Cloud Sync</strong>, your synced content is kept on our servers.</p>
+      <p><strong>If your Cloud Sync subscription ends</strong>, syncing stops, but your backed-up content stays on our servers so you can pick up where you left off if you subscribe again. It is deleted when you delete your account.</p>
+      <p><strong>When you delete your account</strong>, it's deactivated immediately and permanently deleted after a 30-day grace period. At that point, your synced content is deleted and your account details (name, email, and photo) are removed. We keep anonymized records of purchases and credit transactions, which can no longer be linked to you, for accounting and legal purposes.</p>
+      <p>Deleted data may remain in our server backups for a short period before those backups are overwritten. We may also retain limited information where necessary to comply with legal obligations, resolve disputes, or enforce our agreements.</p>
     </section>
 
     <section aria-labelledby="rights">
       <h2 id="rights">6. Your rights and choices</h2>
-      <p>Depending on where you live, you may have the right to access, correct, export, or delete the personal information we hold about you. To exercise any of these rights — including deleting your account and all associated data — email us at the address below. We'll respond and complete verified deletion requests within a reasonable time, except where we're required to retain information by law.</p>
+      <p>Depending on where you live, you may have the right to access, correct, export, or delete the personal information we hold about you.</p>
+      <p><strong>Deleting your account</strong> — You can delete your account from the app's account settings. Your account is deactivated immediately and permanently deleted after 30 days. If you change your mind, simply sign back in within those 30 days and the deletion is cancelled.</p>
+      <p><strong>Other requests</strong> — To access, correct, or export your data, email us at the address below. We'll respond within a reasonable time, except where we're required to retain information by law.</p>
+      <p><strong>Your subscription</strong> — You can cancel Cloud Sync at any time in Google Play. Cancelling stops future renewals; deleting your account doesn't cancel a subscription by itself, so please cancel it in Google Play too.</p>
     </section>
 
     <section aria-labelledby="children">
@@ -192,7 +252,7 @@
 
     <section aria-labelledby="transfers">
       <h2 id="transfers">8. International data transfers</h2>
-      <p>Your information may be processed in countries other than the one you live in, including the Philippines and the United States, wherever Owlora or the service providers listed above operate. By using Owlora, you consent to this transfer and processing.</p>
+      <p>Your information may be processed in countries other than the one you live in, including the Philippines and the United States, and wherever Owlora or the service providers listed above operate. By using Owlora, you consent to this transfer and processing.</p>
     </section>
 
     <section aria-labelledby="changes">
